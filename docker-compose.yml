@@ -12,7 +12,9 @@ services:
     volumes:
       - ../pgdata:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '5555:5432'
+    env_file:
+      - .env
 
   app:
     build:
@@ -25,3 +27,5 @@ services:
       - db
     volumes:
       - ./src:/app/src
+    env_file:
+      - .env
